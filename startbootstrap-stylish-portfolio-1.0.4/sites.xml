@@ -1,21 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<FileZilla3 version="3.17.0" platform="windows">
-	<Servers>
-		<Server>
-			<Host />
-			<Port>21</Port>
-			<Protocol>-1</Protocol>
-			<Type>0</Type>
-			<Logontype>0</Logontype>
-			<TimezoneOffset>0</TimezoneOffset>
-			<PasvMode>MODE_DEFAULT</PasvMode>
-			<MaximumMultipleConnections>0</MaximumMultipleConnections>
-			<EncodingType>Auto</EncodingType>
-			<BypassProxy>0</BypassProxy>
-			<Comments />
-			<LocalDir />
-			<RemoteDir />
-			<SyncBrowsing>0</SyncBrowsing>
-			<DirectoryComparison>0</DirectoryComparison>Nieuwe site</Server>
-	</Servers>
-</FileZilla3>
+<?xml version="1.0"?>
+<configuration>
+  <system.web>
+    <compilation batch="false" />
+  </system.web>
+  <system.webServer>
+    <handlers>
+      <add name="iisnode" path="server.js" verb="*" modules="iisnode" />
+    </handlers>
+    <rewrite>
+      <rules>
+        <rule name="myapp">
+          <match url="/*" />
+          <action type="Rewrite" url="server.js" />
+        </rule>
+      </rules>
+    </rewrite>
+  </system.webServer>
+</configuration>
